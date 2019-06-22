@@ -1,6 +1,6 @@
 package test.com.sort; 
 
-import com.sort.Selection;
+import com.sort.Shell;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
@@ -32,15 +32,15 @@ public void after() throws Exception {
 @Test
 public void testSort() throws Exception { 
 //TODO: Test goes here...
-    Selection selection = new Selection();
+    Shell shell = new Shell();
     Double [] a = new Double[100];
     for (int i = 0; i < 100; i++) {
         for (int j = 0; j < 100; j++) {
             a[j] = StdRandom.uniform();
         }
-        selection.sort(a);
-        assertTrue(selection.isSorted(a, 0 , a.length-1));
-        //selection.show(a);
+        shell.sort(a);
+        assertTrue(shell.isSorted(a, 0 , a.length-1));
+        shell.show(a);
     }
 } 
 

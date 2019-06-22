@@ -40,7 +40,7 @@ public class InsertionTest {
             }
             selection.sort(a);
             assertTrue(selection.isSorted(a, 0 , a.length-1));
-            //selection.show(a);
+            selection.show(a);
         }
     }
 } 
