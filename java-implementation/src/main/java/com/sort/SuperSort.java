@@ -28,6 +28,29 @@ abstract class SuperSort {
         }
         return true;
     }
+    /**
+     * 降序
+     * */
+    public boolean isDescend(Comparable[] a, int lo, int hi) {
+        for (int i = lo +1; i <= hi; i++) {
+            if (less(a[i-1], a[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 升序
+     * */
+    public boolean isAescend(Comparable[] a, int lo, int hi) {
+        for (int i = lo +1; i <= hi; i++) {
+            if (less(a[i], a[i-1])) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
