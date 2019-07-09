@@ -1,5 +1,6 @@
 package com.structure;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 public class Bag<Item> implements Iterable<Item>{
@@ -38,6 +39,35 @@ public class Bag<Item> implements Iterable<Item>{
 
     @Override
     public Iterator<Item> iterator() {
-        return null;
+        return new ListIterator(first);
+    }
+
+    private class ListIterator implements Iterator<Item>{
+        private Node<Item> current;
+
+        public ListIterator(Node<Item> first) {
+            current = first;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public Item next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }
